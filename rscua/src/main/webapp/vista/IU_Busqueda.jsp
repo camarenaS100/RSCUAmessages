@@ -173,9 +173,11 @@
             </button>
         </form>
     </div>
-    <a href="${pageContext.request.contextPath}/vista/IU_Configuracion.jsp">
-        <button><img src="${pageContext.request.contextPath}/vista/imagenes/configuracion.jpg" alt="Configuración"></button>
-    </a>
+    <form action="${pageContext.request.contextPath}/ControladorBusqueda" method="post">
+        <button type="submit" name="accion" value="configuracion">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/configuracion.jpg" alt="Configuración">
+        </button>
+    </form>
     <button><img src="${pageContext.request.contextPath}/vista/imagenes/salida.jpg" alt="Salir"></button>
     <img src="${pageContext.request.contextPath}/vista/imagenes/pruebaL.jpg" alt="Logo" class="logo">
 </div>
@@ -201,4 +203,3 @@
 </div>
 </body>
 </html>
-
