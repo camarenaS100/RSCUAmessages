@@ -5,7 +5,8 @@
   Time: 10:00 p. m.
   To change this template use File | Settings | File Templates.
 
---%><%@ page contentType="text/html;charset=UTF-8" language="java" %>
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
@@ -157,8 +158,21 @@
 </head>
 <body>
 <div class="barra">
-    <button><img src="${pageContext.request.contextPath}/vista/imagenes/7772.jpg" alt="Perfil"></button>
-    <button><img src="${pageContext.request.contextPath}/vista/imagenes/inicio.jpg" alt="Inicio"></button>
+    <form action="ControladorConfiguracion" method="post" style="display:inline;">
+        <button type="submit" name="accion" value="perfil">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/7772.jpg" alt="Perfil">
+        </button>
+    </form>
+    <form action="ControladorConfiguracion" method="post" style="display:inline;">
+        <button type="submit" name="accion" value="busqueda">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/inicio.jpg" alt="Inicio">
+        </button>
+    </form>
+    <form action="ControladorNotificaciones" method="post" style="display:inline;">
+        <button type="submit" name="accion" value="notificaciones">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/notificaciones.png" alt="Notificaciones">
+        </button>
+    </form>
     <div class="busqueda">
         <form action="ControladorConfiguracion" method="post" style="display: flex; align-items: center; width: 100%;">
             <input type="text" name="query" placeholder="Ingresa palabra clave">
@@ -167,10 +181,15 @@
             </button>
         </form>
     </div>
-    <button><img src="${pageContext.request.contextPath}/vista/imagenes/configuracion.jpg" alt="Configuración"></button>
+    <form action="ControladorConfiguracion" method="post" style="display:inline;">
+        <button type="submit" name="accion" value="configuracion">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/configuracion.jpg" alt="Configuración">
+        </button>
+    </form>
     <button><img src="${pageContext.request.contextPath}/vista/imagenes/salida.jpg" alt="Salir"></button>
     <img src="${pageContext.request.contextPath}/vista/imagenes/pruebaL.jpg" alt="Logo" class="logo">
 </div>
+
 
 <div class="configuraciones">
     <h1>Configuración</h1>
