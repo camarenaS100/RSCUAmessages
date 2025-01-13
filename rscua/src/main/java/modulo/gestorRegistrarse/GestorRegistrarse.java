@@ -6,7 +6,7 @@ import java.util.List;
 public class GestorRegistrarse {
     private static List<Registrarse> registrarse = new ArrayList<>();
 
-    public boolean registrarUsuario(Registrarse registrarUsuario) {
+    public boolean UsuarioRegistrado(Registrarse registrarUsuario) {
 
         for (Registrarse r: registrarse) {
             if(r.getUsername().equals(registrarUsuario.getUsername())) {
