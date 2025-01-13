@@ -16,12 +16,14 @@
     <form action="ControladorFeed" method="post">
         <label for="email">Correo </label>
         <input type="email" id="email" name="email" required>
-        <label for="password">Contraseña </label>
+        <label for="password">Contraseña</label>
         <input type="password" id="password" name="password" required><br>
-        <button type="button">Entrar</button><br>
+        <button type="submit">Entrar</button><br>
     </form>
-    <form action="IU_Registrarse.jsp" method="post">
-        <button type="button">Registrarse</button>
+    <div class="separador">
+    </div>
+    <form action="ControladorRegistrarse" method="get">
+        <button type="submit">Registrarse</button>
     </form>
 </div>
 </body>

@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.barra {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 40px;
+    border-radius: 10px;
+}
+
+.barra img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: transparent;
+    padding: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.barra img:hover {
+    transform: scale(1.1);
+}
+
+.barra button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.barra .busqueda {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 15px;
+    padding: 5px 10px;
+    width: 600px;
+}
+
+.barra .busqueda input {
+    border: none;
+    outline: none;
+    flex-grow: 1;
+    padding: 5px;
+    font-size: 16px;
+    background-color: transparent;
+    color: inherit;
+}
+
+.barra .busqueda button img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* Contenedor principal de las historias */
+.Historias {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    overflow-x: auto;
+    border-radius: 10px;
+    margin-left: 10px;
+    /* Oculta la barra de desplazamiento */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.Historias::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+/* Botón de crear historia */
+.crear-historia button {
+    padding: 15px;
+    width: 150px;
+    height: 200px;
+    border: none;
+    border-radius: 10px;
+    background-color: #000000;
+    color: white;
+    font-size: 20px;
+    font-family: "Kohinoor Bangla";
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+.crear-historia button:hover {
+    background-color: #ffffff;
+    color: black;
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el cursor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el cursor */
+}
+
+/* Lista de historias */
+.lista-historias {
+    display: flex;
+}
+
+/* Estilo para las imágenes */
+.lista-historias ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+.lista-historias li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+.lista-historias img {
+    width: 190px;
+    height: 200px;
+    object-fit: cover;
+    border: 3px solid black;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
+}
+
+/* Efecto al pasar el cursor sobre las imágenes */
+.lista-historias img:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el cursor */
+    border: none;
+}

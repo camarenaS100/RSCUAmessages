@@ -14,6 +14,9 @@ import java.io.IOException;
 public class ControladorRegistrarse extends HttpServlet {
     private GestorRegistrarse gestorRegistrarse = new GestorRegistrarse();
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("vista/IU_Registrarse.jsp").forward(request, response);
+    }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
