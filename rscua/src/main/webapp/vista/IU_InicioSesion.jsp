@@ -13,13 +13,15 @@
 </div>
 <div class="iniciar">
     <h2>Iniciar Sesión</h2>
-    <form>
+    <form action="ControladorFeed" method="post">
         <label for="email">Correo </label>
         <input type="email" id="email" name="email" required>
         <label for="password">Contraseña </label>
         <input type="password" id="password" name="password" required><br>
-        <button type="button" onclick="window.location.href='IU_Feed.jsp'">Entrar</button><br>
-        <button type="button" onclick="window.location.href='${pageContext.request.contextPath}/vista/IU_Registrarse.jsp'">Registrarse</button>
+        <button type="button">Entrar</button><br>
+    </form>
+    <form action="IU_Registrarse.jsp" method="post">
+        <button type="button">Registrarse</button>
     </form>
 </div>
 </body>
