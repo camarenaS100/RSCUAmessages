@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>RSCUA</title>
-    <link rel="stylesheet" href="css/RegistrarseStyle.css">
+    <link rel="stylesheet" href="vista/css/RegistrarseStyle.css">
 </head>
 <body>
 <div class="logo">
@@ -13,7 +13,7 @@
 </div>
 <div class="crear">
     <h2>Crear cuenta</h2>
-    <form>
+    <form action="ControladorRegistrarse" method="post">
         <label for="name">Nombre Completo</label>
         <input type="text" id="name" name="name" required>
         <label for="username">Nombre Usuario</label>
@@ -24,8 +24,18 @@
         <input type="email" id="email" name="email" required>
         <label for="password">Contraseña</label>
         <input type="password" id="password" name="password" required><br>
-        <button type="button" onclick=window.location.href='${pageContext.request.contextPath}/vista/IU_Feed.jsp'">Registrarse</button>
+        <button type="submit">Registrarse</button>
     </form>
+    <p style="color: green;">
+        <% if (request.getAttribute("mensaje") != null) { %>
+        <%= request.getAttribute("mensaje") %>
+        <% } %>
+    </p>
+    <p style="color: red;">
+        <% if (request.getAttribute("error") != null) { %>
+        <%= request.getAttribute("error") %>
+        <% } %>
+    </p>
 </div>
 </body>
 </html>

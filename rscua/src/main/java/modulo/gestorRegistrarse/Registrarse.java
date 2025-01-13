@@ -1,7 +1,6 @@
 package modulo.gestorRegistrarse;
 
 public class Registrarse {
-    private int id;
     private String nombre;
     private String username;
     private String phone;
@@ -9,9 +8,8 @@ public class Registrarse {
     private String password;
 
     public Registrarse(
-            int id, String nombre, String username,
+            String nombre, String username,
             String phone, String email, String password){
-        this.id = id;
         this.nombre = nombre;
         this.username = username;
         this.phone = phone;
@@ -19,12 +17,6 @@ public class Registrarse {
         this.password = password;
     }
 
-    public int getId() {
-        return id;
-    }
-    public void setId(int id) {
-        this.id = id;
-    }
     public String getNombre() {
         return nombre;
     }
