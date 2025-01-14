@@ -13,7 +13,7 @@
 </div>
 <div class="iniciar">
     <h2>Iniciar Sesión</h2>
-    <form action="ControladorFeed" method="post">
+    <form action="ControladorFeed" method="get">
         <label for="email">Correo </label>
         <input type="email" id="email" name="email" required>
         <label for="password">Contraseña</label>
