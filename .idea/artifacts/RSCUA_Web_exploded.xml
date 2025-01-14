@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="rscua:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/rscua_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="rscua/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="rscua" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
