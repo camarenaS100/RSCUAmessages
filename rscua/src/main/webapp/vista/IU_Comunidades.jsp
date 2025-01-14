@@ -287,7 +287,7 @@
             boton.innerText = "Procesando...";
             boton.disabled = true; // Deshabilitar mientras se procesa
             setTimeout(() => {
-                boton.innerText = originalText === "Unirse" ? "Unido" : "Reportado";
+                boton.innerText = originalText === "Unirse" ? "Miembro" : "Reportado";
                 boton.disabled = false;
             }, 1000);
         });
