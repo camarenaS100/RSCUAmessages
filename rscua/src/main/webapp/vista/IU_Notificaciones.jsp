@@ -145,18 +145,19 @@
 <body>
 
     <div class="barra">
-        <form action="ControladorConfiguracion" method="post" style="display:inline;">
+        <form action="ControladorPerfil" method="post" style="display:inline;">
             <button type="submit" name="accion" value="perfil">
                 <img src="${pageContext.request.contextPath}/vista/imagenes/7772.jpg" alt="Perfil">
             </button>
         </form>
-    
-        <form action="ControladorConfiguracion" method="post" style="display:inline;">
-            <button type="submit" name="accion" value="busqueda">
-                <img src="${pageContext.request.contextPath}/vista/imagenes/inicio.jpg" alt="Inicio">
+
+
+        <form action="ControladorFeed" method="post" style="display:inline;">
+            <button type="submit" name="accion" value="feed">
+                <img src="${pageContext.request.contextPath}/vista/imagenes/inicio.jpg" alt="Feed">
             </button>
         </form>
-    
+
         <form action="ControladorNotificaciones" method="post" style="display:inline;">
             <button type="submit" name="accion" value="notificaciones">
                 <img src="${pageContext.request.contextPath}/vista/imagenes/notificaciones.png" alt="Notificaciones">

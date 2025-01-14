@@ -162,14 +162,15 @@
     </style>
 </head>
 <body><div class="barra">
-    <form action="ControladorBusqueda" method="post" style="display:inline;">
+    <form action="ControladorPerfil" method="post" style="display:inline;">
         <button type="submit" name="accion" value="perfil">
             <img src="${pageContext.request.contextPath}/vista/imagenes/7772.jpg" alt="Perfil">
         </button>
     </form>
-    <form action="ControladorBusqueda" method="post" style="display:inline;">
-        <button type="submit" name="accion" value="busqueda">
-            <img src="${pageContext.request.contextPath}/vista/imagenes/inicio.jpg" alt="Inicio">
+
+    <form action="ControladorFeed" method="post" style="display:inline;">
+        <button type="submit" name="accion" value="feed">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/inicio.jpg" alt="Feed">
         </button>
     </form>
 
@@ -205,6 +206,7 @@
             <img src="${pageContext.request.contextPath}/vista/imagenes/configuracion.jpg" alt="Configuración">
         </button>
     </form>
+
     <button><img src="${pageContext.request.contextPath}/vista/imagenes/salida.jpg" alt="Salir"></button>
     <img src="${pageContext.request.contextPath}/vista/imagenes/pruebaL.jpg" alt="Logo" class="logo">
 </div>
