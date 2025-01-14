@@ -335,7 +335,7 @@
     </div>
     <div onclick="alert('Escuchando música')">
         <img src="${pageContext.request.contextPath}/vista/imagenes/musica.jpg" alt="Música">
-        <span>Escuchando: 'Confieso - Kanye García'</span>
+        <span>Escuchando: 'Confieso - Kanye García West'</span>
     </div>
 </div>
 
