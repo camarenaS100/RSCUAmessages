@@ -38,7 +38,7 @@ public class ControladorInicioSesion extends HttpServlet {
             //Completa objeto sesion (desde controlador(esta clase))
             //Envia request a IU_Perfil con sesion llena y reemplaza espacio de etiquetas dinamicamente.
                 //Falta modificar IU_Perfil con clase que permita URL rewriting, pendiente
-            request.getRequestDispatcher("vista/IU_Perfil.jsp").forward(request, response);
+            request.getRequestDispatcher("vista/IU_Feed.jsp").forward(request, response);
         } else {
             System.out.println("\nError al iniciar sesion \n");
             request.setAttribute("mensaje", "Usuario no inicio sesion");
