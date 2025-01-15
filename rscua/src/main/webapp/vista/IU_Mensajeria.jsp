@@ -4,7 +4,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Comunidades</title>
+    <title>Mensajeria</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -139,7 +139,6 @@
 </head>
 <body>
 
-
 <div class="barra">
     <form action="ControladorPerfil" method="post" style="display:inline;">
         <button type="submit" name="accion" value="perfil">
@@ -174,7 +173,7 @@
     </div>
 
     <form action="ControladorMensajeria" method="post" style="display:inline;">
-        <button type="submit" name="accion" value="mensajeria">
+        <button type="submit" name="accion" value="chats">
             <img src="${pageContext.request.contextPath}/vista/imagenes/chats.png" alt="Chats">
         </button>
     </form>
@@ -195,96 +194,49 @@
     <img src="${pageContext.request.contextPath}/vista/imagenes/pruebaL.jpg" alt="Logo" class="logo">
 </div>
 <div class="comunidades">
-    <h1>Explora Comunidades</h1>
+    <h1>Mensajes Entrantes</h1>
 
     <div class="comunidad-item">
         <div class="comunidad-info">
-            <h2>Tecnología</h2>
-            <p>Un espacio para los amantes de la tecnología.</p>
+            <h2>Tia Milagros</h2>
+            <p>Bendiciones a ti y a tu mama.</p>
         </div>
         <div class="acciones">
-            <button class="unirse">Unirse</button>
-            <button class="reportar">Reportar</button>
+            <button class="unirse">Ir al chat</button>
+            <button class="Reportar">Marcar como Leido</button>
         </div>
     </div>
-
     <div class="comunidad-item">
         <div class="comunidad-info">
-            <h2>Libros</h2>
-            <p>Comparte tus libros favoritos y encuentra nuevas recomendaciones.</p>
+            <h2>El guero</h2>
+            <p>Ya traje el queso</p>
         </div>
         <div class="acciones">
-            <button class="unirse">Unirse</button>
-            <button class="reportar">Reportar</button>
+            <button class="unirse">Ir al chat</button>
+            <button class="Reportar">Marcar como Leido</button>
         </div>
     </div>
-
     <div class="comunidad-item">
         <div class="comunidad-info">
-            <h2>Gaming</h2>
-            <p>Lugar para encontrar a gente con quién jugar.</p>
+            <h2>Juan Mecanico</h2>
+            <p>Hola 🥺</p>
         </div>
         <div class="acciones">
-            <button class="unirse">Unirse</button>
-            <button class="reportar">Reportar</button>
+            <button class="unirse">Ir al chat</button>
+            <button class="Reportar">Marcar como Leido</button>
         </div>
     </div>
-
     <div class="comunidad-item">
         <div class="comunidad-info">
-            <h2>Arte y Diseño</h2>
-            <p>Un lugar para artistas y diseñadores.</p>
+            <h2>Yo</h2>
+            <p>Se envió una foto</p>
         </div>
         <div class="acciones">
-            <button class="unirse">Unirse</button>
-            <button class="reportar">Reportar</button>
+            <button class="unirse">Ir al chat</button>
+            <button class="Reportar">Marcar como Leido</button>
         </div>
     </div>
-
-    <div class="comunidad-item">
-        <div class="comunidad-info">
-            <h2>Fitness y Salud</h2>
-            <p>Comparte tus rutinas, consejos y progreso.</p>
-        </div>
-        <div class="acciones">
-            <button class="unirse">Unirse</button>
-            <button class="reportar">Reportar</button>
-        </div>
     </div>
-
-    <div class="comunidad-item">
-        <div class="comunidad-info">
-            <h2>Viajeros del Mundo</h2>
-            <p>Intercambia experiencias y consejos de viajes.</p>
-        </div>
-        <div class="acciones">
-            <button class="unirse">Unirse</button>
-            <button class="reportar">Reportar</button>
-        </div>
-    </div>
-
-    <div class="comunidad-item">
-        <div class="comunidad-info">
-            <h2>Cine y Series</h2>
-            <p>Discute tus películas y series favoritas con otros cinéfilos.</p>
-        </div>
-        <div class="acciones">
-            <button class="unirse">Unirse</button>
-            <button class="reportar">Reportar</button>
-        </div>
-    </div>
-
-    <div class="comunidad-item">
-        <div class="comunidad-info">
-            <h2>Emprendedores</h2>
-            <p>Conecta con otros emprendedores y comparte tus ideas.</p>
-        </div>
-        <div class="acciones">
-            <button class="unirse">Unirse</button>
-            <button class="reportar">Reportar</button>
-        </div>
-    </div>
-</div>
 
 <script>
     // Animaciones y confirmaciones en botones
@@ -295,7 +247,7 @@
             boton.innerText = "Procesando...";
             boton.disabled = true; // Deshabilitar mientras se procesa
             setTimeout(() => {
-                boton.innerText = originalText === "Unirse" ? "Miembro" : "Reportado";
+                boton.innerText = originalText === "Ver chat" ? "Abriendo" : "Leido";
                 boton.disabled = false;
             }, 1000);
         });
