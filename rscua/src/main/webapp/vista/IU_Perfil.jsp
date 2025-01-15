@@ -306,6 +306,12 @@
         </button>
     </form>
 
+    <form action="ControladorAyuda" method="post" style="display:inline;">
+        <button type="submit" name="accion" value="ayuda">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/ayuda.jpg" alt="Ayuda">
+        </button>
+    </form>
+
     <button>
         <img src="${pageContext.request.contextPath}/vista/imagenes/salida.jpg" alt="Salir">
     </button>

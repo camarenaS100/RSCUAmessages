@@ -165,7 +165,7 @@
     </form>
 
     <div class="busqueda">
-        <form action="ControladorConfiguracion" method="post" style="display: flex; align-items: center; width: 100%;">
+        <form action="ControladorBusqueda" method="post" style="display: flex; align-items: center; width: 100%;">
             <input type="text" name="query" placeholder="Ingresa palabra clave">
             <button type="submit" name="accion" value="buscar">
                 <img src="${pageContext.request.contextPath}/vista/imagenes/busqueda.jpg" alt="Buscar">
@@ -184,6 +184,13 @@
             <img src="${pageContext.request.contextPath}/vista/imagenes/configuracion.jpg" alt="Configuración">
         </button>
     </form>
+
+    <form action="ControladorAyuda" method="post" style="display:inline;">
+        <button type="submit" name="accion" value="ayuda">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/ayuda.jpg" alt="Ayuda">
+        </button>
+    </form>
+
     <button><img src="${pageContext.request.contextPath}/vista/imagenes/salida.jpg" alt="Salir"></button>
     <img src="${pageContext.request.contextPath}/vista/imagenes/pruebaL.jpg" alt="Logo" class="logo">
 </div>
