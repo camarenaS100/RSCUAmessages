@@ -76,11 +76,13 @@
         }
 
         .resultados {
-            margin: 20px 50px;
+            margin: 20px auto;
             padding: 20px;
+            max-width: 900px;
             border: 1px solid ${esOscuro ? '#444' : 'black'};
             border-radius: 15px;
             background-color: ${esOscuro ? '#1e1e1e' : 'white'};
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .resultados h1 {
@@ -98,6 +100,13 @@
             border: 1px solid ${esOscuro ? '#444' : '#ccc'};
             border-radius: 10px;
             background-color: ${esOscuro ? '#2e2e2e' : '#f9f9f9'};
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .perfil-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .perfil-item img {
@@ -136,28 +145,37 @@
             cursor: pointer;
             background-color: ${esOscuro ? '#444' : '#ddd'};
             color: ${esOscuro ? 'white' : 'black'};
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .acciones button:hover {
             background-color: ${esOscuro ? '#666' : '#bbb'};
+            transform: scale(1.05);
         }
 
         .publicaciones {
             display: flex;
-            gap: 10px;
+            gap: 15px;
             margin-top: 20px;
         }
 
         .publicaciones img {
-            width: 300px;
+            width: 280px;
             height: 200px;
             border-radius: 10px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .publicaciones img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         .descripcion-post {
             font-size: 18px;
             margin-top: 10px;
+            color: ${esOscuro ? '#aaa' : '#333'};
         }
     </style>
 </head>
@@ -210,7 +228,6 @@
     <button><img src="${pageContext.request.contextPath}/vista/imagenes/salida.jpg" alt="Salir"></button>
     <img src="${pageContext.request.contextPath}/vista/imagenes/pruebaL.jpg" alt="Logo" class="logo">
 </div>
-
 
 <div class="resultados">
     <h1>Búsquedas relacionadas con: CasZer29</h1>
