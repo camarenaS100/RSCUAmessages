@@ -34,4 +34,5 @@ public class GestorAutenticacion {
         exito = pAutenticacion.verificarLogin(usuario.getEmail(), usuario.getPassword());
         return exito;
     }
+
 }

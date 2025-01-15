@@ -29,7 +29,10 @@ public class Conexion {
         System.out.println("\n\nConexion establecida");
     }
 
-    // Getter to obtain the underlying connection
+    /**
+     * @author
+     * @return
+     */
     public Connection getConexion() {
         return con;
     }
