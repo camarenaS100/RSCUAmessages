@@ -1,11 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ivan_
-  Date: 04/01/2025
-  Time: 10:00 p. m.
-  To change this template use File | Settings | File Templates.
-
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -202,6 +194,12 @@
                 <img src="${pageContext.request.contextPath}/vista/imagenes/configuracion.jpg" alt="Configuración">
             </button>
         </form>
+
+    <form action="ControladorAyuda" method="post" style="display:inline;">
+        <button type="submit" name="accion" value="ayuda">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/ayuda.jpg" alt="Ayuda">
+        </button>
+    </form>
     
     
         <button><img src="${pageContext.request.contextPath}/vista/imagenes/salida.jpg" alt="Salir"></button>
