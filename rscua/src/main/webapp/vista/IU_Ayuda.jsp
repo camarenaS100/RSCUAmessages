@@ -164,7 +164,7 @@
         </form>
     </div>
 
-    <form action="ControladorConfiguracion" method="post" style="display:inline;">
+    <form action="ControladorMensajeria" method="post" style="display:inline;">
         <button type="submit" name="accion" value="chats">
             <img src="${pageContext.request.contextPath}/vista/imagenes/chats.png" alt="Chats">
         </button>
