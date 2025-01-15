@@ -16,6 +16,16 @@
     <form action="ControladorRegistrarse" method="post">
         <label for="name">Nombre Completo</label>
         <input type="text" id="name" name="name" required>
+        <label for="lastname">Apellido</label>
+        <input type="text" id="lastname" name="lastname" required>
+        <label for="fn">Fecha de Nacimiento</label>
+        <input type="date" id="fn" name="fn" required>
+        <label for="sex">Sexo</label>
+        <select id="sex" name="sex" required>
+            <option value="">Seleccione</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+        </select>
         <label for="username">Nombre Usuario</label>
         <input type="text" id="username" name="username" required>
         <label for="phone">Celular</label>

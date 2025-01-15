@@ -1,8 +1,5 @@
 package controlador;
 
-import modulo.gestorRegistrarse.Registrarse;
-import modulo.gestorRegistrarse.GestorRegistrarse;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

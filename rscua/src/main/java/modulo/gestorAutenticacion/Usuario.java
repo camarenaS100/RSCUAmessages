@@ -1,18 +1,36 @@
-package modulo.gestorRegistrarse;
+package modulo.gestorAutenticacion;
 
-public class Registrarse {
+import java.sql.Date;
+
+public class Usuario {
+    public enum Sexo {
+        Femenino,
+        Masculino
+    }
+
     private String nombre;
+    private String apellido;
     private String username;
     private String phone;
     private String email;
     private String password;
+    private Date fecnac; //usa java.sql.Date
+    private Sexo sexo;
 
-    public Registrarse(
-            String nombre, String username,
-            String phone, String email, String password){
+    public Usuario(
+            String nombre, String apellido, String username,
+            String phone, String email, String password, Date fecnac, String sexo) {
         this.nombre = nombre;
+        this.apellido = apellido;
+        this.sexo = Sexo.valueOf(sexo);
+        this.fecnac = fecnac;
         this.username = username;
         this.phone = phone;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Usuario(String email, String password) {
         this.email = email;
         this.password = password;
     }
@@ -47,4 +65,11 @@ public class Registrarse {
     public void setPassword(String password) {
         this.password = password;
     }
+    public String getApellido() { return apellido; }
+    public void setApellido(String apellido) { this.apellido = apellido; }
+    public Date getFecnac() { return fecnac; }
+    public void setFecnac(Date fecnac) { this.fecnac = fecnac; }
+    public Sexo getSexo() { return sexo; }
+    public void setSexo(Sexo sexo) { this.sexo = sexo; }
+
 }
