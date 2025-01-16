@@ -1,4 +1,4 @@
-package modulo.gestorMensaje;
+package modulo.gestorMensajeria;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "ControladorAyuda", urlPatterns = {"/ControladorAyuda"})
-public class ControladorAyuda extends HttpServlet {
+public class ControladorAsistencia extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("vista/IU_Ayuda.jsp").forward(request, response);

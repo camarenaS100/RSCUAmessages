@@ -1,4 +1,4 @@
-package modulo.gestorMensaje;
+package modulo.gestorMensajeria;
 
 public class Mensaje {
     private String remitente;

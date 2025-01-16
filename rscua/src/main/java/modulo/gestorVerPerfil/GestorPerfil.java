@@ -1,4 +1,4 @@
-package modulo.gestorPerfil;
+package modulo.gestorVerPerfil;
 
 import java.util.ArrayList;
 import java.util.List;
