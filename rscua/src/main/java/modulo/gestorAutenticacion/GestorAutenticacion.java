@@ -19,20 +19,17 @@ public class GestorAutenticacion {
     }
 
     public boolean Registrar(Usuario nuevoUsuario) {
-        boolean exito = false;
         try {
-             exito = pAutenticacion.registrar(nuevoUsuario);
+             return pAutenticacion.registrar(nuevoUsuario);
         } catch (SQLException e) {
             System.out.println("\n\nError al registrar usuario\n\n");
             e.printStackTrace();
+            return false;
         }
-        return exito;
     }
 
     public boolean IniciarSesion(Usuario usuario) {
-        boolean exito = false;
-        exito = pAutenticacion.verificarLogin(usuario.getEmail(), usuario.getPassword());
-        return exito;
+        return  pAutenticacion.verificarLogin(usuario.getEmail(), usuario.getPassword());
     }
 
 }

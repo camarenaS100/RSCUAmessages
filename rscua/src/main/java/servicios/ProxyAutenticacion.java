@@ -2,6 +2,7 @@ package servicios;
 
 import modulo.gestorAutenticacion.Usuario;
 
+import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,43 +15,56 @@ public class ProxyAutenticacion {
         this.conexion = new Conexion();
     }
 
-    public boolean existeCorreoTelefonoOUsername(String email, String phone, String username) throws SQLException {
-        String query = "SELECT COUNT(*) AS count FROM usuario WHERE correo = ? OR numTelefono = ? OR nombreUsuario = ?";
-        try (PreparedStatement ps = conexion.getConexion().prepareStatement(query)) {
-            ps.setString(1, email);
-            ps.setString(2, phone);
-            ps.setString(3, username);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    return rs.getInt("count") > 0;
-                }
-            }
+    // Se elimina el metodo existeCorreoTelefonoOUsername y se reemplaza por el siguiente:
+    public boolean validarUsuario(String email, String phone, String username, java.sql.Date fechaNacimiento) {
+        String callSP = "{CALL sp_validar_usuario(?,?,?,?)}";
+        try (CallableStatement cs = conexion.getConexion().prepareCall(callSP)) {
+            cs.setString(1, email);
+            cs.setString(2, username);
+            cs.setString(3, phone);
+            cs.setDate(4, fechaNacimiento);
+            cs.execute();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("Error en validación del usuario: " + ex.getMessage());
+            ex.printStackTrace();
+            return false;
         }
-        return false;
     }
 
 
     public boolean registrar(Usuario nU) throws SQLException {
-        if (existeCorreoTelefonoOUsername(nU.getEmail(), nU.getPhone(), nU.getUsername())) {
-            System.out.println("Email, phone number, or username already exists. Registration aborted.");
+        // Primero se valida el usuario; si falla, se aborta el registro.
+        if (!validarUsuario(nU.getEmail(), nU.getPhone(), nU.getUsername(), nU.getFecnac())) {
+            System.out.println("Validación fallida (edad menor de 18 o credenciales duplicadas).");
             return false;
         }
 
-        String query = "INSERT INTO usuario (correo, numTelefono, nombreUsuario, nombrePersonal, apellido, contrasenia, fechaNacimiento, sexo) VALUES (?,?,?,?,?,?,?,?)";
-        try (PreparedStatement ps = conexion.getConexion().prepareStatement(query)) {
-            ps.setString(1, nU.getEmail());
-            ps.setString(2, nU.getPhone());
-            ps.setString(3, nU.getUsername());
-            ps.setString(4, nU.getNombre());
-            ps.setString(5, nU.getApellido());
-            ps.setString(6, nU.getPassword());
-            ps.setDate(7, nU.getFecnac());  // fecnac es java.sql.Date
+        // Se invoca el procedimiento almacenado sp_registrar_usuario
+        String callSP = "{CALL sp_registrar_usuario(?,?,?,?,?,?,?,?,?)}";
+        try (CallableStatement cs = conexion.getConexion().prepareCall(callSP)) {
+            cs.setString(1, nU.getEmail());
+            cs.setString(2, nU.getPhone());
+            cs.setString(3, nU.getUsername());
+            cs.setString(4, nU.getNombre());
+            cs.setString(5, nU.getApellido());
+            cs.setString(6, nU.getPassword());
+            cs.setDate(7, nU.getFecnac());  // p_fechaNacimiento como java.sql.Date
             String sexo = ((Usuario.Sexo) nU.getSexo()).name();
-            ps.setString(8, sexo);
+            cs.setString(8, sexo);
+            cs.setString(9, null);  // Se envía null y se resuelve luego
 
-            int rowsAffected = ps.executeUpdate();
-            return rowsAffected > 0;
+            boolean hadResults = cs.execute();
+            if (hadResults) {
+                try (ResultSet rs = cs.getResultSet()) {
+                    if (rs.next()) {
+                        int nuevoId = rs.getInt("usuario_registrado");
+                        return nuevoId > 0;
+                    }
+                }
+            }
         }
+        return false;
     }
 
 
