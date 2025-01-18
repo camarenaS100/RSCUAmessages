@@ -1,47 +1,63 @@
 package modulo.gestorPublicaciones;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Publicaciones {
-    // Atributos
-    private String id;
-    private String usuario;
+
+    public enum TipoContenido {
+        TEXTO, IMAGEN, VIDEO
+    }
+
+    public enum Privacidad {
+        PUBLICO, AMIGOS, PRIVADO
+    }
+    private int id;
+    private int usuarioId;
     private String contenido;
-    private String imagen;
-    private Date fechaPublicacion;
-    private int likes;
-    private int comentarios;
-    private int compartidos;
+    private TipoContenido tipoContenido;
+    private Timestamp fechaPublicacion;
+    private String etiquetas;
+    private Privacidad privacidad;
+    private Integer adminEliminoId;
+    private Integer adminModificoId;
+    private Timestamp fechaEliminacion;
+    private Timestamp fechaModificacion;
 
-    public Publicaciones(String id, String usuario, String contenido, String imagen, Date fechaPublicacion) {
+    public Publicaciones(int id, int usuarioId, String contenido, TipoContenido tipoContenido, Timestamp fechaPublicacion,
+                         String etiquetas, Privacidad privacidad, Integer adminEliminoId, Integer adminModificoId,
+                         Timestamp fechaEliminacion, Timestamp fechaModificacion) {
         this.id = id;
-        this.usuario = usuario;
+        this.usuarioId = usuarioId;
         this.contenido = contenido;
-        this.imagen = imagen;
+        this.tipoContenido = tipoContenido;
         this.fechaPublicacion = fechaPublicacion;
-        this.likes = 0;
-        this.comentarios = 0;
-        this.compartidos = 0;
+        this.etiquetas = etiquetas;
+        this.privacidad = privacidad;
+        this.adminEliminoId = adminEliminoId;
+        this.adminModificoId = adminModificoId;
+        this.fechaEliminacion = fechaEliminacion;
+        this.fechaModificacion = fechaModificacion;
     }
 
-    public Publicaciones(String id, String usuario, String contenido, Date fechaPublicacion) {
-        this(id, usuario, contenido, null, fechaPublicacion);
+    // Constructor vacío
+    public Publicaciones() {
     }
 
-    public String getId() {
+    // Getters y Setters
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public int getUsuarioId() {
+        return usuarioId;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public String getContenido() {
@@ -52,55 +68,67 @@ public class Publicaciones {
         this.contenido = contenido;
     }
 
-    public String getImagen() {
-        return imagen;
+    public TipoContenido getTipoContenido() {
+        return tipoContenido;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+    public void setTipoContenido(TipoContenido tipoContenido) {
+        this.tipoContenido = tipoContenido;
     }
 
-    public Date getFechaPublicacion() {
+    public Timestamp getFechaPublicacion() {
         return fechaPublicacion;
     }
 
-    public void setFechaPublicacion(Date fechaPublicacion) {
+    public void setFechaPublicacion(Timestamp fechaPublicacion) {
         this.fechaPublicacion = fechaPublicacion;
     }
 
-    public int getLikes() {
-        return likes;
+    public String getEtiquetas() {
+        return etiquetas;
     }
 
-    public void setLikes(int likes) {
-        this.likes = likes;
+    public void setEtiquetas(String etiquetas) {
+        this.etiquetas = etiquetas;
     }
 
-    public int getComentarios() {
-        return comentarios;
+    public Privacidad getPrivacidad() {
+        return privacidad;
     }
 
-    public void setComentarios(int comentarios) {
-        this.comentarios = comentarios;
+    public void setPrivacidad(Privacidad privacidad) {
+        this.privacidad = privacidad;
     }
 
-    public int getCompartidos() {
-        return compartidos;
+    public Integer getAdminEliminoId() {
+        return adminEliminoId;
     }
 
-    public void setCompartidos(int compartidos) {
-        this.compartidos = compartidos;
+    public void setAdminEliminoId(Integer adminEliminoId) {
+        this.adminEliminoId = adminEliminoId;
     }
 
-    public void incrementarLikes() {
-        this.likes++;
+    public Integer getAdminModificoId() {
+        return adminModificoId;
     }
 
-    public void agregarComentario() {
-        this.comentarios++;
+    public void setAdminModificoId(Integer adminModificoId) {
+        this.adminModificoId = adminModificoId;
     }
 
-    public void compartirPublicacion() {
-        this.compartidos++;
+    public Timestamp getFechaEliminacion() {
+        return fechaEliminacion;
+    }
+
+    public void setFechaEliminacion(Timestamp fechaEliminacion) {
+        this.fechaEliminacion = fechaEliminacion;
+    }
+
+    public Timestamp getFechaModificacion() {
+        return fechaModificacion;
+    }
+
+    public void setFechaModificacion(Timestamp fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
     }
 }

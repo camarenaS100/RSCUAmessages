@@ -1,74 +1,59 @@
 package modulo.gestorPublicaciones;
 
-import java.util.ArrayList;
-import java.util.Date;
+import servicios.ProxyPublicaciones;
+
+import java.sql.SQLException;
 import java.util.List;
 
 public class GestorPublicaciones {
-    private List<Publicaciones> publicaciones;
+    private ProxyPublicaciones proxyPublicaciones;
 
     public GestorPublicaciones() {
-        this.publicaciones = new ArrayList<>();
-    }
-
-    // Crear publicación
-    public void crearPublicacion(String usuario, String contenido, String imagen) {
-        String id = generarId();
-        Publicaciones nuevaPublicacion = new Publicaciones(id, usuario, contenido, imagen, new Date());
-        publicaciones.add(nuevaPublicacion);
-        //sql
-    }
-
-    // Editar publicación
-    public boolean editarPublicacion(String id, String nuevoContenido, String nuevaImagen) {
-        for (Publicaciones pub : publicaciones) {
-            if (pub.getId().equals(id)) {
-                pub.setContenido(nuevoContenido);
-                if (nuevaImagen != null) {
-                    pub.setImagen(nuevaImagen);
-                }
-                return true; // Edición exitosa
-            }
+        try {
+            proxyPublicaciones = new ProxyPublicaciones();
+        } catch (SQLException e) {
+            System.out.println("Error al inicializar ProxyPublicaciones");
+            e.printStackTrace();
         }
-        return false; // No se encontró la publicación
-        //sql
     }
 
-    // Eliminar publicación
-    public boolean eliminarPublicacion(String id) {
-        //return publicaciones.removeIf(pub -> pub.getId().equals(id));
-        return true; //sql
-    }
-
-    // Obtener publicaciones de un usuario
-    public List<Publicaciones> obtenerPublicacionesPorUsuario(String usuario) {
-        List<Publicaciones> resultado = new ArrayList<>();
-        for (Publicaciones pub : publicaciones) {
-            if (pub.getUsuario().equals(usuario)) {
-                resultado.add(pub);
-            }
+    public boolean crearPublicacion(Publicaciones nuevaPublicacion) {
+        try {
+            return proxyPublicaciones.crearPublicacion(nuevaPublicacion);
+        } catch (SQLException e) {
+            System.out.println("Error al crear publicación");
+            e.printStackTrace();
+            return false;
         }
-        return resultado; //sql
     }
 
-    // Interacción con publicaciones
-    public boolean reaccionarPublicacion(String id) {
-        return true; //sql
+    public boolean eliminarPublicacion(int idPublicacion) {
+        try {
+            return proxyPublicaciones.eliminarPublicacion(idPublicacion);
+        } catch (SQLException e) {
+            System.out.println("Error al eliminar publicación");
+            e.printStackTrace();
+            return false;
+        }
     }
 
-    public boolean agregarComentario(String id) {
-        return true; //sql
+    public List<Publicaciones> obtenerPublicacionesPorUsuario(int usuarioId) {
+        try {
+            return proxyPublicaciones.obtenerPublicacionesPorUsuario(usuarioId);
+        } catch (SQLException e) {
+            System.out.println("Error al obtener publicaciones");
+            e.printStackTrace();
+            return null;
+        }
     }
 
-    public boolean compartirPublicacion(String id) {
-      return true; //sql
-    }
-
-    private String generarId() {
-        return ""; //sql
-    }
-
-    public List<Publicaciones> getPublicaciones() {
-        return publicaciones;
+    public boolean editarPublicacion(Publicaciones publicacionEditada) {
+        try {
+            return proxyPublicaciones.editarPublicacion(publicacionEditada);
+        } catch (SQLException e) {
+            System.out.println("Error al editar publicación");
+            e.printStackTrace();
+            return false;
+        }
     }
 }
