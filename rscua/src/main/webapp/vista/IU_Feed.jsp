@@ -89,5 +89,10 @@
 
     <div class="home">
     </div>
+
+    <div class="IU_CrearPublicacion">
+        <jsp:include page="IU_CrearPublicacion.jsp"></jsp:include>
+        <jsp:include page="IU_Publicacion.jsp"></jsp:include>
+    </div>
 </body>
 </html>
