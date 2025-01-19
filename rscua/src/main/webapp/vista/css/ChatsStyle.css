@@ -60,3 +60,156 @@ body {
     height: 40px;
     border-radius: 50%;
 }
+
+/* Chat Feed Styles */
+.chats-feed {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chats-foto img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.chats-nombre {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.chats-nombre p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.chats-elementos {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.chats-elementos form {
+    display: flex;
+    gap: 15px;
+    margin: 0;
+}
+
+.chats-elementos img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.chats-elementos img:hover {
+    transform: scale(1.1);
+}
+
+.chats-usuario, .chats-amigo {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.chats-usuario {
+    background-color: #e1f5fe;
+    align-self: flex-end;
+    text-align: right;
+    margin-left: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chats-amigo {
+    background-color: #f1f0f0;
+    align-self: flex-start;
+    text-align: left;
+    margin-right: auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chats-usuario p, .chats-amigo p {
+    margin: 5px 0;
+}
+
+/* Chat Actions Styles */
+.chats-acciones {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.chats-acciones form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.chats-acciones label {
+    display: none;
+}
+
+.chats-acciones input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+}
+
+.chats-acciones input:focus {
+    box-shadow: 0 0 5px rgba(0, 132, 255, 0.8);
+    border-color: #0084ff;
+}
+
+.chats-acciones button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.chats-acciones button img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.chats-acciones button img:hover {
+    transform: scale(1.1);
+}
+
+.chats-acciones img {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.chats-acciones img:hover {
+    transform: scale(1.1);
+}
+
