@@ -35,7 +35,7 @@ Instala y configura MySQL Community Edition.
 Usa la contraseña predeterminada `rHQKUcA3XE` para garantizar la conexión con el proyecto.  
 Importa la base de datos siguiendo este tutorial en YouTube (enlace).
 
-**Configuración**  
+### Configuración  
 **Configurar IntelliJ IDEA**  
 Verifica la estructura del proyecto en **Project Structure**:  
 - Módulos  
@@ -53,18 +53,18 @@ Agrega el **Data Source**:
 - Contraseña: `rHQKUcA3XE`  
 Prueba la conexión y aplica los cambios.
 
-**Ejecución del Proyecto**  
+### Ejecución del Proyecto 
 En IntelliJ IDEA, selecciona el servidor configurado.  
 Haz clic en **Run** para iniciar el servidor.  
 Accede a la aplicación desde tu navegador en `http://localhost:8080`.
 
-**Equipo de Desarrollo**  
+### Equipo de Desarrollo
 - Casandra Zetina Rodriguez  
 - Iván Garrido Velázquez  
 - Miguel Ángel Jimenez Salazar  
 - Santiago Camarena Torres  
 
-**Enlaces Útiles**  
+### Enlaces Útiles
 - [Repositorio en GitHub](https://github.com/Cas260208/RSCUA/tree/main )  
 - [Java SDK 20](https://www.oracle.com/java/technologies/javase/jdk20-archive-downloads.html)  
 - [Apache Tomcat 9.0.98](https://tomcat.apache.org/download-90.cgi)  
