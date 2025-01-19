@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="modulo.gestorAutenticacion.Usuario" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,10 +114,15 @@
 </head>
 <body>
 <div class="post-container">
+    <%
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        String nombreCompleto = usuario.getNombre() + " " + usuario.getApellido();
+        String username = usuario.getUsername();
+    %>
     <div class="header">
         <div style="display: flex; align-items: center;">
             <img src="${pageContext.request.contextPath}/vista/imagenes/777.jpg" alt="Perfil">
-            <span class="username">@Zaganav29</span>
+            <span class="username">@<%= username %>></span>
         </div>
         <div class="options-menu">
             <button class="options-button">

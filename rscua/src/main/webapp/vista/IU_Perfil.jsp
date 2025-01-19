@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="modulo.gestorAutenticacion.Usuario" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,65 +15,7 @@
             margin: 0;
             padding: 0;
         }
-        .barra {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 40px;
-            background-color: ${esOscuro ? '#1e1e1e' : 'white'};
-            border-bottom: 1px solid ${esOscuro ? '#333' : 'black'};
-            border-radius: 10px;
-        }
 
-        .barra img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: transparent;
-            padding: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
-        }
-
-        .barra img:hover {
-            transform: scale(1.1);
-        }
-
-        .barra button {
-            background-color: transparent;
-            border: none;
-            padding: 0;
-            display: inline-flex;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .busqueda {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border: 1px solid ${esOscuro ? '#444' : 'black'};
-            border-radius: 15px;
-            padding: 5px 10px;
-            background-color: ${esOscuro ? '#333' : 'white'};
-            width: 600px;
-        }
-
-        .busqueda input {
-            border: none;
-            outline: none;
-            flex-grow: 1;
-            padding: 5px;
-            font-size: 16px;
-            background-color: transparent;
-            color: inherit;
-        }
-
-        .busqueda button img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
         /* Foto de perfil e información principal */
 
         /* Foto de perfil e información principal */
@@ -261,70 +205,21 @@
 <body>
 
 <div class="barra">
-    <form action="ControladorPerfil" method="post" style="display:inline;">
-        <button type="submit" name="accion" value="perfil">
-            <img src="${pageContext.request.contextPath}/vista/imagenes/7772.jpg" alt="Perfil">
-        </button>
-    </form>
-
-    <form action="ControladorFeed" method="post" style="display:inline;">
-        <button type="submit" name="accion" value="feed">
-            <img src="${pageContext.request.contextPath}/vista/imagenes/inicio.jpg" alt="Feed">
-        </button>
-    </form>
-
-    <form action="ControladorNotificaciones" method="post" style="display:inline;">
-        <button type="submit" name="accion" value="notificaciones">
-            <img src="${pageContext.request.contextPath}/vista/imagenes/notificaciones.png" alt="Notificaciones">
-        </button>
-    </form>
-
-    <form action="ControladorComunidades" method="post" style="display:inline;">
-        <button type="submit" name="accion" value="comunidades">
-            <img src="${pageContext.request.contextPath}/vista/imagenes/comunidad.png" alt="Comunidades">
-        </button>
-    </form>
-
-    <div class="busqueda">
-        <form action="ControladorBusqueda" method="post" style="display: flex; align-items: center; width: 100%;">
-            <input type="text" name="query" placeholder="Ingresa palabra clave">
-            <button type="submit" name="accion" value="buscar">
-                <img src="${pageContext.request.contextPath}/vista/imagenes/busqueda.jpg" alt="Buscar">
-            </button>
-        </form>
-    </div>
-
-    <form action="ControladorMensajeria" method="post" style="display:inline;">
-        <button type="submit" name="accion" value="chats">
-            <img src="${pageContext.request.contextPath}/vista/imagenes/chats.png" alt="Chats">
-        </button>
-    </form>
-
-    <form action="ControladorBusqueda" method="post" style="display:inline;">
-        <button type="submit" name="accion" value="configuracion">
-            <img src="${pageContext.request.contextPath}/vista/imagenes/configuracion.jpg" alt="Configuración">
-        </button>
-    </form>
-
-    <form action="ControladorAyuda" method="post" style="display:inline;">
-        <button type="submit" name="accion" value="ayuda">
-            <img src="${pageContext.request.contextPath}/vista/imagenes/ayuda.jpg" alt="Ayuda">
-        </button>
-    </form>
-
-    <button>
-        <img src="${pageContext.request.contextPath}/vista/imagenes/salida.jpg" alt="Salir">
-    </button>
-
-    <!-- Logo -->
-    <img src="${pageContext.request.contextPath}/vista/imagenes/pruebaL.jpg" alt="Logo">
+    <jsp:include page="header.jsp"></jsp:include>
 </div>
+
+<%
+    Usuario usuario = (Usuario) session.getAttribute("usuario");
+    String nombreCompleto = usuario.getNombre() + " " + usuario.getApellido();
+    String username = usuario.getUsername();
+%>
 
 <div class="perfil-header">
     <img src="${pageContext.request.contextPath}/vista/imagenes/7772.jpg" alt="Foto de Perfil" onclick="alert('Foto de perfil seleccionada')">
-    <h1>Iván Garrido Velázquez</h1>
-    <p>@Ivan</p>
+    <h1><%= nombreCompleto %></h1>
+    <p>@<%= username %></p>
 </div>
+
 
 <div class="informacion">
     <div onclick="alert('Estudia en UAM Cuajimalpa')">
@@ -368,8 +263,8 @@
     <div class="publicacion-header">
         <img src="${pageContext.request.contextPath}/vista/imagenes/7772.jpg" alt="Foto de Perfil">
         <div>
-            <h3>Iván Garrido Velázquez</h3>
-            <p style="color: gray;">@Ivan</p>
+            <h3><%= nombreCompleto%>></h3>
+            <p style="color: gray;">@<%= username%></p>
         </div>
     </div>
     <div class="publicacion-body">

@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
 public class ProxyAutenticacion {
     private Conexion conexion;
 
@@ -85,6 +84,39 @@ public class ProxyAutenticacion {
             psEx.printStackTrace();
             return false;
         }
+    }
+
+
+    public Usuario obtenerUsuario(String correo) throws SQLException {
+        Usuario usuario = null;
+        String query = "SELECT * FROM usuario WHERE correo = ?";
+
+        try (PreparedStatement ps = conexion.getConexion().prepareStatement(query)) {
+            ps.setString(1, correo);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    String email = rs.getString("correo");
+                    String phone = rs.getString("numTelefono");
+                    String username = rs.getString("nombreUsuario");
+                    String nombre = rs.getString("nombrePersonal");
+                    String apellido = rs.getString("apellido");
+                    String contrasenia = rs.getString("contrasenia");
+                    java.sql.Date fecnac = rs.getDate("fechaNacimiento");
+                    String sexo = rs.getString("sexo");
+
+                    usuario = new Usuario(nombre, apellido, username, phone, email, contrasenia, fecnac, sexo);
+                }
+            } catch (SQLException rsEx) {
+                System.err.println("Error al ejecutar la consulta: " + rsEx.getMessage());
+                rsEx.printStackTrace();
+                return null;
+            }
+        } catch (SQLException psEx) {
+            System.err.println("Error en la preparación de la consulta o en la conexión: " + psEx.getMessage());
+            psEx.printStackTrace();
+        }
+        return usuario;
     }
 
 }

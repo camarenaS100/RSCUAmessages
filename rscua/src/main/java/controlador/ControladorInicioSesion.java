@@ -30,14 +30,14 @@ public class ControladorInicioSesion extends HttpServlet {
         if(ga.IniciarSesion(usuario)){
             //Crea sesion
             HttpSession session = request.getSession();
-            session.setAttribute("usuario", usuario);
+            session.setMaxInactiveInterval(180); //214 HFJS
             //Avisa de exito
             System.out.println("\nExito al iniciar sesion \n");
             request.setAttribute("mensaje", "Usuario inicio sesion exitosa");
             //Consigue información básica de usuario (desde controlador <- gestor -> proxyAuth -> conexion -> BdD)
+            usuario = ga.getUsuario(correo);
             //Completa objeto sesion (desde controlador(esta clase))
-            //Envia request a IU_Perfil con sesion llena y reemplaza espacio de etiquetas dinamicamente.
-                //Falta modificar IU_Perfil con clase que permita URL rewriting, pendiente
+            session.setAttribute("usuario", usuario);
             request.getRequestDispatcher("vista/IU_Feed.jsp").forward(request, response);
         } else {
             System.out.println("\nError al iniciar sesion \n");
