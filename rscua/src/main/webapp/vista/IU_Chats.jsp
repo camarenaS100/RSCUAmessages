@@ -67,5 +67,49 @@
     <img src="${pageContext.request.contextPath}/vista/imagenes/pruebaL.jpg" alt="Logo" class="logo">
 </div>
 
+<div class="chats-feed">
+    <div class="chats-foto">
+        <img src="${pageContext.request.contextPath}/vista/imagenes/Chats_usuario.jpeg">
+    </div>
+    <div class="chats-nombre">
+        <p>Usuario</p>
+    </div>
+    <div class="chats-elementos">
+        <form>
+            <img src="${pageContext.request.contextPath}/vista/imagenes/chats-telefono.png">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/chats-videollamada.png">
+        </form>
+    </div>
+    <div class="chats-usuario">
+        <p>Hola</p>
+    </div>
+    <div class="chats-amigo">
+        <p>Hola</p>
+    </div>
+    <div class="chats-usuario">
+        <p>¿Como estas?</p>
+    </div>
+    <div class="chats-amigo">
+        <p>Bien gracias</p>
+    </div>
+    <div class="chats-usuario">
+        <p>Que bien</p>
+    </div>
+    <div class="chats-amigo">
+        <p>Si</p>
+    </div>
+</div>
+<div class="chats-acciones">
+    <form>
+        <label for="mensaje">Escribir mensaje</label>
+        <input type="text" id="mensaje" name="mensaje">
+        <button type="submit">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/chats-palomita.png">
+        </button>
+    </form>
+    <img src="${pageContext.request.contextPath}/vista/imagenes/chats-mas.png">
+    <img src="${pageContext.request.contextPath}/vista/imagenes/chats-ubicacion.png">
+</div>
+
 </body>
 </html>
