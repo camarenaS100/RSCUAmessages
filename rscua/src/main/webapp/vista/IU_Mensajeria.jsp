@@ -222,7 +222,9 @@
             <p>Hola 🥺</p>
         </div>
         <div class="acciones">
-            <button class="unirse">Ir al chat</button>
+            <form action="ControladorChats" method="post">
+                <button class="unirse" type="submit" value="accion">Ir al chat</button>
+            </form>
             <button class="Reportar">Marcar como Leido</button>
         </div>
     </div>
@@ -232,26 +234,15 @@
             <p>Se envió una foto</p>
         </div>
         <div class="acciones">
-            <button class="unirse">Ir al chat</button>
+            <form action="ControladorChats" method="post">
+                <button class="unirse" type="submit" value="accion">Ir al chat</button>
+            </form>
             <button class="Reportar">Marcar como Leido</button>
         </div>
     </div>
     </div>
 
 <script>
-    // Animaciones y confirmaciones en botones
-    const botones = document.querySelectorAll('.acciones button');
-    botones.forEach(boton => {
-        boton.addEventListener('click', () => {
-            const originalText = boton.innerText;
-            boton.innerText = "Procesando...";
-            boton.disabled = true; // Deshabilitar mientras se procesa
-            setTimeout(() => {
-                boton.innerText = originalText === "Ver chat" ? "Abriendo" : "Leido";
-                boton.disabled = false;
-            }, 1000);
-        });
-    });
 </script>
 </body>
 </html>
