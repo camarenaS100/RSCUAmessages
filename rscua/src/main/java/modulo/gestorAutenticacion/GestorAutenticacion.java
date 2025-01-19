@@ -1,5 +1,6 @@
 package modulo.gestorAutenticacion;
 
+import modulo.gestorConfiguracion.Configuracion;
 import servicios.ProxyAutenticacion;
 
 import java.sql.SQLException;
@@ -42,4 +43,13 @@ public class GestorAutenticacion {
         }
     }
 
+    public Configuracion getConfiguracion(String correo) {
+        try {
+            return pAutenticacion.obtenerConfiguracion(correo);
+        } catch (SQLException e) {
+            System.out.println("\n\nError al obtener usuario\n\n");
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package servicios;
 
 import modulo.gestorAutenticacion.Usuario;
+import modulo.gestorConfiguracion.Configuracion;
 
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
@@ -96,6 +97,7 @@ public class ProxyAutenticacion {
 
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
+                    int id = rs.getInt("id");
                     String email = rs.getString("correo");
                     String phone = rs.getString("numTelefono");
                     String username = rs.getString("nombreUsuario");
@@ -105,7 +107,7 @@ public class ProxyAutenticacion {
                     java.sql.Date fecnac = rs.getDate("fechaNacimiento");
                     String sexo = rs.getString("sexo");
 
-                    usuario = new Usuario(nombre, apellido, username, phone, email, contrasenia, fecnac, sexo);
+                    usuario = new Usuario(id, nombre, apellido, username, phone, email, contrasenia, fecnac, sexo);
                 }
             } catch (SQLException rsEx) {
                 System.err.println("Error al ejecutar la consulta: " + rsEx.getMessage());
@@ -117,6 +119,27 @@ public class ProxyAutenticacion {
             psEx.printStackTrace();
         }
         return usuario;
+    }
+
+    public Configuracion obtenerConfiguracion(String correo) throws SQLException {
+        Configuracion config = null;
+        String query = "SELECT * FROM configuracion WHERE correo = ?";
+        try (PreparedStatement ps = conexion.getConexion().prepareStatement(query)) {
+            ps.setString(1, correo);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    String idiomaStr = rs.getString("idioma");
+                    String privacidadStr = rs.getString("privacidad");
+                    String temaStr = rs.getString("tema");
+
+                    Configuracion.Privacidad privacidad = Configuracion.Privacidad.valueOf(privacidadStr.toUpperCase());
+                    Configuracion.Tema tema = Configuracion.Tema.valueOf(temaStr.toUpperCase());
+
+                    config = new Configuracion(0, idiomaStr, privacidad, tema);
+                }
+            }
+        }
+        return config;
     }
 
 }

@@ -8,6 +8,7 @@ public class Usuario {
         Masculino
     }
 
+    private int id;
     private String nombre;
     private String apellido;
     private String username;
@@ -30,11 +31,29 @@ public class Usuario {
         this.password = password;
     }
 
+    public Usuario(int id,
+            String nombre, String apellido, String username,
+            String phone, String email, String password, Date fecnac, String sexo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.sexo = Sexo.valueOf(sexo);
+        this.fecnac = fecnac;
+        this.username = username;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+    }
+
     public Usuario(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
+    public int getId() { return id; }
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getNombre() {
         return nombre;
     }

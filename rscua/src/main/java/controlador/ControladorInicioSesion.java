@@ -2,6 +2,7 @@ package controlador;
 
 import modulo.gestorAutenticacion.GestorAutenticacion;
 import modulo.gestorAutenticacion.Usuario;
+import modulo.gestorConfiguracion.Configuracion;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,8 +37,11 @@ public class ControladorInicioSesion extends HttpServlet {
             request.setAttribute("mensaje", "Usuario inicio sesion exitosa");
             //Consigue información básica de usuario (desde controlador <- gestor -> proxyAuth -> conexion -> BdD)
             usuario = ga.getUsuario(correo);
+            //Obtiene configuracion
+            Configuracion configuracion = ga.getConfiguracion(correo);
             //Completa objeto sesion (desde controlador(esta clase))
             session.setAttribute("usuario", usuario);
+            session.setAttribute("configuracion", configuracion);
             request.getRequestDispatcher("vista/IU_Feed.jsp").forward(request, response);
         } else {
             System.out.println("\nError al iniciar sesion \n");

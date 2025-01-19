@@ -26,6 +26,6 @@ public class ControladorCerrarSesion extends HttpServlet {
         // Invalida la sesión actual
         request.getSession().invalidate();
         // Redirige a la página de inicio de sesión
-        response.sendRedirect(request.getContextPath() + "/vista/IU_InicioSesion.jsp");
+        response.sendRedirect(request.getContextPath() + "/ControladorInicioSesion");
     }
 }

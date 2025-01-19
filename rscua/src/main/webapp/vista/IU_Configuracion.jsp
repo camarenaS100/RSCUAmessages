@@ -9,8 +9,10 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: ${esOscuro ? '#121212' : 'white'};
-            color: ${esOscuro ? 'white' : 'black'};
+            /* Para modo oscuro, en lugar de usar '#121212', se usa un gris oscuro */
+            background-color: ${esOscuro ? '#2e2e2e' : 'white'};
+            /* Para modo oscuro se usa texto en gris claro */
+            color: ${esOscuro ? '#D3D3D3' : 'black'};
             margin: 0;
             padding: 0;
         }
@@ -20,8 +22,9 @@
             align-items: center;
             justify-content: space-between;
             padding: 10px 40px;
-            background-color: ${esOscuro ? '#1e1e1e' : 'white'};
-            border-bottom: 1px solid ${esOscuro ? '#333' : 'black'};
+            /* Ajustamos el fondo en modo oscuro a un gris oscuro (en lugar de negro) */
+            background-color: ${esOscuro ? '#333' : 'white'};
+            border-bottom: 1px solid ${esOscuro ? '#555' : 'black'};
             border-radius: 10px;
         }
 
@@ -52,10 +55,10 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border: 1px solid ${esOscuro ? '#444' : 'black'};
+            border: 1px solid ${esOscuro ? '#555' : 'black'};
             border-radius: 15px;
             padding: 5px 10px;
-            background-color: ${esOscuro ? '#333' : 'white'};
+            background-color: ${esOscuro ? '#444' : 'white'};
             width: 600px;
         }
 
@@ -78,9 +81,9 @@
         .configuraciones {
             margin: 20px 50px;
             padding: 20px 30px;
-            border: 1px solid ${esOscuro ? '#444' : 'black'};
+            border: 1px solid ${esOscuro ? '#555' : 'black'};
             border-radius: 15px;
-            background-color: ${esOscuro ? '#1e1e1e' : 'white'};
+            background-color: ${esOscuro ? '#333' : 'white'};
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -104,7 +107,7 @@
         }
 
         .configuraciones button:hover {
-            background-color: ${esOscuro ? '#444' : '#f0f0f0'};
+            background-color: ${esOscuro ? '#555' : '#f0f0f0'};
             transform: scale(1.02);
         }
 
@@ -116,14 +119,14 @@
         }
 
         .panel-tema, .panel-idioma {
-            display: none;
             margin-top: 20px;
             padding: 20px;
-            border: 1px solid ${esOscuro ? '#444' : '#ccc'};
+            border: 1px solid ${esOscuro ? '#555' : '#ccc'};
             border-radius: 10px;
-            background-color: ${esOscuro ? '#2e2e2e' : '#f9f9f9'};
+            background-color: ${esOscuro ? '#3a3a3a' : '#f9f9f9'};
         }
 
+        /* Se controla la visibilidad mediante los atributos en la solicitud */
         .panel-tema {
             display: ${mostrarPanelTema ? 'block' : 'none'};
         }
@@ -139,12 +142,12 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            background-color: ${esOscuro ? '#444' : '#ddd'};
+            background-color: ${esOscuro ? '#555' : '#ddd'};
             color: ${esOscuro ? 'white' : 'black'};
         }
 
         .panel button:hover {
-            background-color: ${esOscuro ? '#666' : '#bbb'};
+            background-color: ${esOscuro ? '#777' : '#bbb'};
         }
     </style>
 </head>
@@ -156,6 +159,8 @@
 
 <div class="configuraciones">
     <h1>Configuración</h1>
+
+    <!-- Botón para mostrar el panel de cambio de tema -->
     <form action="ControladorConfiguracion" method="post">
         <button type="submit" name="accion" value="mostrarPanelTema">
             <img src="${pageContext.request.contextPath}/vista/imagenes/tema.png" alt="Tema"> Cambiar Tema
@@ -168,25 +173,45 @@
             <button type="submit" name="accion" value="temaClaro">Modo Claro</button>
         </form>
     </div>
+
+    <!-- Sección para cambiar otros datos (nombre de usuario, contraseña, foto) -->
     <form action="ControladorConfiguracion" method="post">
-        <button type="button"><img src="${pageContext.request.contextPath}/vista/imagenes/perfil.jpg" alt="Usuario"> Cambiar nombre de usuario</button>
-        <button type="button"><img src="${pageContext.request.contextPath}/vista/imagenes/contrasenia.jpg" alt="Contraseña"> Cambiar contraseña</button>
-        <button type="button"><img src="${pageContext.request.contextPath}/vista/imagenes/foto.jpg" alt="Foto"> Cambiar foto de perfil</button>
+        <button type="button">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/perfil.jpg" alt="Usuario"> Cambiar nombre de usuario
+        </button>
+        <button type="button">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/contrasenia.jpg" alt="Contraseña"> Cambiar contraseña
+        </button>
+        <button type="button">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/foto.jpg" alt="Foto"> Cambiar foto de perfil
+        </button>
         <button type="submit" name="accion" value="mostrarPanelIdioma">
             <img src="${pageContext.request.contextPath}/vista/imagenes/idioma.jpg" alt="Idioma"> Cambiar Idioma
         </button>
     </form>
 
+    <!-- Panel para cambiar el idioma. Se envía el valor del nuevo idioma mediante un menú desplegable -->
     <div class="panel panel-idioma">
         <h2>Selecciona el idioma:</h2>
-        <button type="button">Inglés</button>
-        <button type="button">Español</button>
-        <button type="button">Francés</button>
+        <form action="ControladorConfiguracion" method="post">
+            <select name="idioma">
+                <option value="EN">Inglés</option>
+                <option value="ES" selected>Español</option>
+                <option value="FR">Francés</option>
+            </select>
+            <!-- Se asigna la acción 'cambiarIdioma' para que en el controlador se detecte el cambio -->
+            <button type="submit" name="accion" value="cambiarIdioma">Cambiar Idioma</button>
+        </form>
     </div>
 
+    <!-- Sección para otros ajustes (información principal y privacidad) -->
     <form action="ControladorConfiguracion" method="post">
-        <button type="button"><img src="${pageContext.request.contextPath}/vista/imagenes/informacion.jpg" alt="Información"> Cambiar información principal</button>
-        <button type="button"><img src="${pageContext.request.contextPath}/vista/imagenes/privacidad.jpg" alt="Privacidad"> Cambiar privacidad de la cuenta</button>
+        <button type="button">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/informacion.jpg" alt="Información"> Cambiar información principal
+        </button>
+        <button type="button">
+            <img src="${pageContext.request.contextPath}/vista/imagenes/privacidad.jpg" alt="Privacidad"> Cambiar privacidad de la cuenta
+        </button>
     </form>
 </div>
 </body>
