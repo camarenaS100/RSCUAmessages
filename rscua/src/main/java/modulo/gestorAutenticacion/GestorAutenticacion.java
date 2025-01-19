@@ -32,4 +32,14 @@ public class GestorAutenticacion {
         return  pAutenticacion.verificarLogin(usuario.getEmail(), usuario.getPassword());
     }
 
+    public Usuario getUsuario(String correo) {
+        try {
+            return pAutenticacion.obtenerUsuario(correo);
+        } catch (SQLException e) {
+            System.out.println("\n\nError al obtener usuario\n\n");
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
