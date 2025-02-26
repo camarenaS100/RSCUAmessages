@@ -16,7 +16,6 @@ Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
 - **Apache Tomcat 9.0.98**
 - **MySQL Community Edition** (incluye MySQL Workbench y MySQL Shell)
 - **Conector MySQL para Java**
-- .
 
 ### Equipo de Desarrollo
 - Casandra Zetina Rodriguez  
