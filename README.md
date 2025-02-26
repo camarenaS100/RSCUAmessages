@@ -5,9 +5,6 @@ El propósito del fork, es probar la mensajería y uso de notificaciones.
 
 ## Tabla de Contenidos
 - [Requisitos](#requisitos)
-- [Instalación](#instalación)
-- [Configuración](#configuración)
-- [Ejecución del Proyecto](#ejecución-del-proyecto)
 - [Equipo de Desarrollo](#equipo-de-desarrollo)
 - [Enlaces Útiles](#enlaces-útiles)
 
